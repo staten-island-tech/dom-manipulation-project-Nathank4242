@@ -22,5 +22,5 @@ DOMselectors.button.addEventListener("click", function (event) {
 DOMselectors.form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  console.log(document.querySelector("input").innerText);
+  console.log(document.querySelector("input").value);
 });
