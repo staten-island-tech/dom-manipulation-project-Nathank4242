@@ -9,47 +9,46 @@ const DOMselectors = {
 
 console.log(DOMselectors.card);
 
-DOMselectors.button.addEventListener("click", function (event) {
-  console.log(event.target);
-  event.target.parentElement.style.backgroundColor = "red";
+document.getElementById("forms").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent form submission
+  let input = document.querySelector("input"); // Select the input field
+  document.getElementById("test").textContent = input.value; // Display input value
+  console.log(input.value); // Log the input value
 });
 
-DOMselectors.form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  let = input = document.querySelector("input");
-  console.group(input.value);
-  input.value = ";";
-  console.log(input.value);
-});
+//DOMselectors.container.insertAdjacentHTML(
+//  "beforeend",
+//  `<div class="card"><h2 class= "card=header">${card.}</h2></div>`
+//);
 
-// select all buttons as node listt
-const buttons = document.querySelectorAll("button");
-// make array
-const newButtons = Array.from(buttons);
-// iterate through array and change each buttons color
-newButtons.forEach((button) => (button.style.backgroundColor = "blue"));
+// DOMselectors.button.addEventListener("click", function (event) {
+//   console.log(event.target);
+//   event.target.parentElement.style.backgroundColor = "red";
+// });
 
-newButtons.forEach((button) =>
-  button.addEventListener("click", function (event) {
-    console.log(event.target.textContent);
-  })
-);
+// // select all buttons as node listt
+// const buttons = document.querySelectorAll("button");
+// // make array
+// const newButtons = Array.from(buttons);
+// // iterate through array and change each buttons color
+// newButtons.forEach((button) => (button.style.backgroundColor = "blue"));
 
-let movie = {
-  title: "Star Wars",
-  release: 1977,
-};
+// newButtons.forEach((button) =>
+//   button.addEventListener("click", function (event) {
+//     console.log(event.target.textContent);
+//   })
+// );
 
-DOMselectors.container.insertAdjacentHTML(
-  "beforeend",
-  `<div class="card"><h2 class= "card=header">${movie.title}</h2></div>`
-);
+// let movie = {
+//   title: "Star Wars",
+//   release: 1977,
+// };
 
-// create the html for inmputs , card and container aka nwhere the card s go
+// create the html for inputs , card and container aka where the card  go
 
-// select/query the htmol form and get value from inputs
+// select/query the html form and get value from inputs
 
-//turn vlaues into pbject Movie, Game, User whatevs
+//turn vlaues into object Movie, Game, User whatevs
 
 //insert card with object onto html
 
