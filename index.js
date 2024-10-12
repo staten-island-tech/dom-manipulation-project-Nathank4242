@@ -23,7 +23,7 @@ document
     const card = document.createElement("div");
     card.className = "card";
 
-    // Create the inner HTML of the card
+    //the inner HTML
     card.innerHTML = `
       <h2>${title}</h2>
       <p>${description}</p>
