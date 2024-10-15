@@ -12,29 +12,45 @@ h1 {
   font-size: 6rem;
 }
 
-#container {
-  text-align: center;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 10px;
   font-size: 7rem;
 }
 
-#card {
+#inputs {
   background: white;
   border-radius: 6px;
   padding: 20px;
   text-align: center;
-  width: 150px;
+  width: 250px; /* Increased width for better input handling */
+  margin: 0 auto; /* Centering the inputs */
 }
 
-#card img {
-  max-width: 100%;
-  border-radius: 8px;
+#card-list {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap onto the next line */
+  justify-content: center; /* Center cards in the container */
 }
 
 .card {
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 15px;
-  margin: 10px 0;
+  border: 4px solid red;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 10px; /* Space between cards */
+  text-align: center;
   background-color: white;
+  width: 150px; /* Set a fixed width for the card */
+  flex: 0 1 auto; /* Allow cards to flex */
+}
+
+.card-img {
+  max-height: 150px;
+  max-width: 100%;
+}
+
+body {
+  background-image: url("minecragy.png");
 }

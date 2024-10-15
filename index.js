@@ -17,48 +17,38 @@ document
     const description = document.getElementById("description").value;
     const imageUrl = document.getElementById("image-url").value;
 
-    // Create a new card
+    // Validate the image URL
+    if (!isValidImageUrl(imageUrl)) {
+      alert("Please enter a valid image URL.");
+      return; // Stop if the URL is invalid
+    }
+
     const card = document.createElement("div");
     card.className = "card";
 
-    //the inner HTML
     card.innerHTML = `
-      <h2>${title}</h2>
+      <h2 class="card-header">${title}</h2>
+      <img src="${imageUrl}" alt="User Image" class="card-img">
       <p>${description}</p>
-      <img src="${imageUrl}" alt="${title}">
+      <button type="button" class="btn" id="remove">Remove</button>
   `;
 
     // Append the new card to the cards container
-    document.getElementById("container").appendChild(card);
+    document.getElementById("card-list").appendChild(card);
 
     // Clear the form fields for new input
     document.getElementById("card-form").reset();
+
+    // Add event listener for the remove button
+    card.querySelector("#remove").addEventListener("click", function () {
+      card.remove();
+    });
   });
 
-// document.getElementById('forms').addEventListener('submit', function(event) {
-//   event.preventDefault(); // Prevent the default form submission
-
-// const name = document.getElementById("name").value;
-// const description = document.getElementById("description").value;
-// const image = document.getElementById("image").value;
-
-// const card = document.createElement("div");
-// card.classList.add("card");
-// card.style.backgroundColor = color;
-
-// // Add title and description to the card
-// card.innerHTML = `<h3>${title}</h3><p>${description}</p>`;
-
-// // Append the new card to the card container
-// document.getElementById("cards").appendChild(card);
-
-// // Clear the input fields
-// document.getElementById("card-form").reset();
-
-// DOMselectors.container.insertAdjacentHTML(
-//   "beforeend",
-//   `<div class="card"><h2 class= "card=header">${card.}</h2></div>`
-// );
+// Function to validate the image URL
+function isValidImageUrl(url) {
+  return /\.(jpg|jpeg|png|gif|bmp|webp|svg)$/i.test(url);
+}
 
 // create the html for inputs , card and container aka where the card  go
 
