@@ -17,38 +17,31 @@ document
     const description = document.getElementById("description").value;
     const imageUrl = document.getElementById("image-url").value;
 
-    // Validate the image URL
-    if (!isValidImageUrl(imageUrl)) {
-      alert("Please enter a valid image URL.");
-      return; // Stop if the URL is invalid
-    }
-
     const card = document.createElement("div");
     card.className = "card";
 
-    card.innerHTML = `
+    card.insertAdjacentHTML(
+      "beforeend",
+      `
       <h2 class="card-header">${title}</h2>
-      <img src="${imageUrl}" alt="User Image" class="card-img">
-      <p>${description}</p>
-      <button type="button" class="btn" id="remove">Remove</button>
-  `;
+      <img src="${imageUrl}" alt="User Image" class="card-img"> 
+      <p>${description}</p> 
+      <button type="button" class="btn" id="remove">Remove</button> 
+  `
+    );
 
-    // Append the new card to the cards container
+    function removeCard(card) {
+      card.remove();
+    }
+
     document.getElementById("card-list").appendChild(card);
 
-    // Clear the form fields for new input
     document.getElementById("card-form").reset();
 
-    // Add event listener for the remove button
     card.querySelector("#remove").addEventListener("click", function () {
-      card.remove();
+      removeCard(card);
     });
   });
-
-// Function to validate the image URL
-function isValidImageUrl(url) {
-  return /\.(jpg|jpeg|png|gif|bmp|webp|svg)$/i.test(url);
-}
 
 // create the html for inputs , card and container aka where the card  go
 
