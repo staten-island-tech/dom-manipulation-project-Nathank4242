@@ -20,22 +20,23 @@ document
     const card = document.createElement("div");
     card.className = "card";
 
-    card.insertAdjacentHTML(
-      "beforeend",
-      `
-      <h2 class="card-header">${title}</h2>
-      <img src="${imageUrl}" alt="User Image" class="card-img"> 
-      <p>${description}</p> 
-      <button type="button" class="btn" id="remove">Remove</button> 
-  `
-    );
-
     function removeCard(card) {
       card.remove();
     }
 
-    document.getElementById("card-list").appendChild(card);
-
+    function createCard(card) {
+      card.insertAdjacentHTML(
+        "beforeend",
+        `
+        <h2 class="card-header">${title}</h2>
+        <img src="${imageUrl}" alt="User Image" class="card-img"> 
+        <p>${description}</p> 
+        <button type="button" class="btn" id="remove">Remove</button> 
+    `
+      );
+      document.getElementById("card-list").appendChild(card);
+    }
+    createCard(card);
     document.getElementById("card-form").reset();
 
     card.querySelector("#remove").addEventListener("click", function () {
